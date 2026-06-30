@@ -7,25 +7,35 @@ def build_schema(config):
     for fdef in fields:
         prop = {}
         ftype = fdef.get("type", "string")
-        if ftype == "string":
-            prop["type"] = "string"
-        elif ftype == "number":
-            prop["type"] = "number"
-        elif ftype == "string[]":
-            prop["type"] = "array"
+        is_required = fdef.get("required", False)
+
+        # Allow null for optional fields
+        if not is_required:
+            prop["type"] = [ftype, "null"]
+        else:
+            prop["type"] = ftype
+
+        # Handle arrays / objects properly
+        if ftype == "string[]":
+            prop["type"] = "array" if is_required else ["array", "null"]
             prop["items"] = {"type": "string"}
-        # add more as needed
+        elif ftype == "object":
+            prop["type"] = "object" if is_required else ["object", "null"]
+        elif ftype == "object[]":
+            prop["type"] = "array" if is_required else ["array", "null"]
+            prop["items"] = {"type": "object"}
+        elif ftype == "number":
+            pass  # already set type above
+
         properties[fdef["path"]] = prop
-        if fdef.get("required"):
+        if is_required:
             required.append(fdef["path"])
 
-    schema = {
+    return {
         "type": "object",
         "properties": properties,
         "required": required
     }
-    return schema
-
 def validate_output(ctx):
     schema = build_schema(ctx["config"])
     try:

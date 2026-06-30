@@ -1,0 +1,55 @@
+{
+  "candidate_id": "5ca5d412",
+  "full_name": "Jane Smith",
+  "emails": [
+    "jane.smith@example.com"
+  ],
+  "phones": [
+    "+14155550132"
+  ],
+  "location": null,
+  "links": {
+    "github": "https://github.com/octocat",
+    "blog": "https://github.blog"
+  },
+  "headline": "I am the official mascot of GitHub. I love JavaScript and React.",
+  "years_experience": null,
+  "skills": [
+    {
+      "name": "JavaScript",
+      "confidence": null,
+      "sources": [
+        "github"
+      ]
+    },
+    {
+      "name": "React",
+      "confidence": null,
+      "sources": [
+        "github"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "TechCorp",
+      "title": "Senior Developer",
+      "start": null,
+      "end": null,
+      "summary": ""
+    }
+  ],
+  "education": [],
+  "overall_confidence": 0.49,
+  "confidence": {
+    "full_name": 0.8,
+    "headline": 0.6,
+    "years_experience": 0.0,
+    "location": 0.0,
+    "emails": 0.8,
+    "phones": 0.8,
+    "skills": 0.6,
+    "experience": 0.8,
+    "education": 0.0
+  }
+}

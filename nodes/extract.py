@@ -56,10 +56,29 @@ def empty_candidate(source):
         "experience": [],
         "education": []
     }
+import re
+KNOWN_SKILLS = ["JavaScript", "Python", "React", "Node.js", "Java", "C++", "SQL"]
+
+def extract_skills_from_text(text):
+    found = []
+    for skill in KNOWN_SKILLS:
+        if re.search(rf'\b{re.escape(skill)}\b', text, re.IGNORECASE):
+            found.append(skill)
+    return found
+
+import json
 
 def extract_github(data):
+    # Handle file content (string) -> parse JSON
+    if isinstance(data, str):
+        try:
+            data = json.loads(data)
+        except json.JSONDecodeError:
+            return empty_candidate("github")
+    
     if not isinstance(data, dict):
         return empty_candidate("github")
+
     cand = empty_candidate("github")
     cand["full_name"] = data.get("name")
     email = data.get("email")
@@ -71,8 +90,15 @@ def extract_github(data):
         "github": data.get("html_url"),
         "blog": data.get("blog") if data.get("blog") else None
     }
-    # Extract skills from bio with simple regex (optional, we'll do it in normalize)
-    # We'll just store the bio as headline
+    # Skills from bio
+    cand["skills"] = extract_skills_from_text(data.get("bio", ""))
+    
+    # (Optional) location parsing – uncomment if you like
+    # location = data.get("location")
+    # if location:
+    #     parts = [p.strip() for p in location.split(",")]
+    #     cand["location"] = {"city": parts[0], "region": parts[1] if len(parts)>1 else None, "country": None}
+    
     return cand
 
 def extract_all(ctx):

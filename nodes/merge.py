@@ -33,6 +33,7 @@ def merge_candidates(ctx):
     def add_provenance(field, source, method):
         merged["provenance"].append({"field": field, "source": source, "method": method})
 
+    print("merge_candidates normalized count:", len(candidates), "sources:", [cand.get("source") for cand in candidates])
     # Scalars: take first non‑null from sorted candidates
     for field in ["full_name", "headline", "years_experience"]:
         for cand in sorted_cands:
@@ -98,10 +99,11 @@ def merge_candidates(ctx):
                     add_provenance(f"links.{k}", cand["source"], "union")
 
     if merged["emails"]:
-     primary_email = merged["emails"][0]
-     merged["candidate_id"] = hashlib.md5(primary_email.encode()).hexdigest()[:8]
+        primary_email = merged["emails"][0]
+        merged["candidate_id"] = hashlib.md5(primary_email.encode()).hexdigest()[:8]
     else:
-     merged["candidate_id"] = "unknown-candidate"
+        merged["candidate_id"] = "unknown-candidate"
 
+    print("merged headline:", merged["headline"])
     ctx["merged"] = [merged]
     return ctx
