@@ -1,0 +1,4 @@
+Name: Jane Smith
+Email: jane.smith@gmail.com
+Phone: +1-415-555-0132
+Notes: Strong JavaScript background, knows React and Node.js

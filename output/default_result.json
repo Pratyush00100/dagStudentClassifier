@@ -1,0 +1,40 @@
+{
+  "candidate_id": null,
+  "full_name": "Jane Smith",
+  "emails": [
+    "jane.smith@example.com"
+  ],
+  "phones": [
+    "+14155550132"
+  ],
+  "location": null,
+  "links": {
+    "github": "https://github.com/octocat",
+    "blog": "https://github.blog"
+  },
+  "headline": null,
+  "years_experience": null,
+  "skills": [],
+  "experience": [
+    {
+      "company": "TechCorp",
+      "title": "Senior Developer",
+      "start": null,
+      "end": null,
+      "summary": ""
+    }
+  ],
+  "education": [],
+  "overall_confidence": 0.36,
+  "confidence": {
+    "full_name": 0.8,
+    "headline": 0.0,
+    "years_experience": 0.0,
+    "location": 0.0,
+    "emails": 0.8,
+    "phones": 0.8,
+    "skills": 0.0,
+    "experience": 0.8,
+    "education": 0.0
+  }
+}
