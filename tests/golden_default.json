@@ -1,0 +1,153 @@
+{
+  "candidate_id": "5ca5d412",
+  "full_name": "Jane Smith",
+  "emails": [
+    "jane.smith@example.com",
+    "jane.smith@linkedin.com"
+  ],
+  "phones": [
+    "+14155550132"
+  ],
+  "location": {
+    "city": "San Francisco",
+    "region": "CA",
+    "country": "US"
+  },
+  "links": {
+    "github": "https://github.com/octocat",
+    "blog": "https://github.blog"
+  },
+  "headline": "Senior Developer at TechCorp",
+  "years_experience": null,
+  "skills": [
+    {
+      "name": "JavaScript",
+      "confidence": null,
+      "sources": [
+        "linkedin"
+      ]
+    },
+    {
+      "name": "React",
+      "confidence": null,
+      "sources": [
+        "linkedin"
+      ]
+    },
+    {
+      "name": "Node.js",
+      "confidence": null,
+      "sources": [
+        "linkedin"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "confidence": null,
+      "sources": [
+        "linkedin"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "TechCorp",
+      "title": "Senior Developer",
+      "start": null,
+      "end": null,
+      "summary": ""
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stanford University",
+      "degree": "B.S.",
+      "field": "Computer Science",
+      "end_year": 2019
+    }
+  ],
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "ats",
+      "method": "source_priority"
+    },
+    {
+      "field": "headline",
+      "source": "linkedin",
+      "method": "source_priority"
+    },
+    {
+      "field": "location",
+      "source": "linkedin",
+      "method": "source_priority"
+    },
+    {
+      "field": "emails",
+      "source": "ats",
+      "method": "union"
+    },
+    {
+      "field": "phones",
+      "source": "ats",
+      "method": "union"
+    },
+    {
+      "field": "experience",
+      "source": "ats",
+      "method": "union"
+    },
+    {
+      "field": "emails",
+      "source": "linkedin",
+      "method": "union"
+    },
+    {
+      "field": "skills",
+      "source": "linkedin",
+      "method": "union"
+    },
+    {
+      "field": "skills",
+      "source": "linkedin",
+      "method": "union"
+    },
+    {
+      "field": "skills",
+      "source": "linkedin",
+      "method": "union"
+    },
+    {
+      "field": "skills",
+      "source": "linkedin",
+      "method": "union"
+    },
+    {
+      "field": "education",
+      "source": "linkedin",
+      "method": "union"
+    },
+    {
+      "field": "links.github",
+      "source": "github",
+      "method": "union"
+    },
+    {
+      "field": "links.blog",
+      "source": "github",
+      "method": "union"
+    }
+  ],
+  "overall_confidence": 0.56,
+  "confidence": {
+    "full_name": 0.8,
+    "headline": 0.5,
+    "years_experience": 0.0,
+    "location": 0.5,
+    "emails": 0.65,
+    "phones": 0.8,
+    "skills": 0.5,
+    "experience": 0.8,
+    "education": 0.5
+  }
+}
