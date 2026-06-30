@@ -1,0 +1,21 @@
+{
+  "name": "Jane Smith",
+  "primary_email": "jane.smith@example.com",
+  "phone": "+14155550132",
+  "skills_list": [
+    "JavaScript",
+    "React"
+  ],
+  "confidence": {
+    "full_name": 0.8,
+    "headline": 0.6,
+    "years_experience": 0.0,
+    "location": 0.6,
+    "emails": 0.8,
+    "phones": 0.8,
+    "skills": 0.6,
+    "experience": 0.8,
+    "education": 0.0
+  },
+  "overall_confidence": 0.56
+}

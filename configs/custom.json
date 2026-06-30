@@ -6,5 +6,6 @@
     { "path": "skills_list", "from": "skills[].name", "type": "string[]", "normalize": "canonical" }
   ],
   "include_confidence": true,
-  "on_missing": "omit"
+  "on_missing": "omit",
+  "source_priority": ["ats", "github"]
 }

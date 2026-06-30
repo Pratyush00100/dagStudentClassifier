@@ -7,7 +7,11 @@
   "phones": [
     "+14155550132"
   ],
-  "location": null,
+  "location": {
+    "city": "San Francisco",
+    "region": null,
+    "country": "US"
+  },
   "links": {
     "github": "https://github.com/octocat",
     "blog": "https://github.blog"
@@ -40,12 +44,64 @@
     }
   ],
   "education": [],
-  "overall_confidence": 0.49,
+  "provenance": [
+    {
+      "field": "full_name",
+      "source": "ats",
+      "method": "source_priority"
+    },
+    {
+      "field": "headline",
+      "source": "github",
+      "method": "source_priority"
+    },
+    {
+      "field": "location",
+      "source": "github",
+      "method": "source_priority"
+    },
+    {
+      "field": "emails",
+      "source": "ats",
+      "method": "union"
+    },
+    {
+      "field": "phones",
+      "source": "ats",
+      "method": "union"
+    },
+    {
+      "field": "experience",
+      "source": "ats",
+      "method": "union"
+    },
+    {
+      "field": "skills",
+      "source": "github",
+      "method": "union"
+    },
+    {
+      "field": "skills",
+      "source": "github",
+      "method": "union"
+    },
+    {
+      "field": "links.github",
+      "source": "github",
+      "method": "union"
+    },
+    {
+      "field": "links.blog",
+      "source": "github",
+      "method": "union"
+    }
+  ],
+  "overall_confidence": 0.56,
   "confidence": {
     "full_name": 0.8,
     "headline": 0.6,
     "years_experience": 0.0,
-    "location": 0.0,
+    "location": 0.6,
     "emails": 0.8,
     "phones": 0.8,
     "skills": 0.6,

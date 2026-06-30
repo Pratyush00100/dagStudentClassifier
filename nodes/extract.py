@@ -90,6 +90,15 @@ def extract_github(data):
         "github": data.get("html_url"),
         "blog": data.get("blog") if data.get("blog") else None
     }
+    # location parsing (simple)
+    location_str = data.get("location")
+    if location_str:
+        parts = [p.strip() for p in location_str.split(",")]
+        cand["location"] = {
+            "city": parts[0],
+            "region": parts[1] if len(parts) > 1 else None,
+            "country": "US"  # assume US for demo; could be smarter
+        }
     # Skills from bio
     cand["skills"] = extract_skills_from_text(data.get("bio", ""))
     

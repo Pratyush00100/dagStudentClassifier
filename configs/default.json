@@ -8,9 +8,10 @@
     { "path": "links", "type": "object", "required": false },
     { "path": "headline", "type": "string", "required": false },
     { "path": "years_experience", "type": "number", "required": false },
-    { "path": "skills", "type": "string[]", "required": false },
+    { "path": "skills", "type": "object[]", "required": false },
     { "path": "experience", "type": "object[]", "required": false },
     { "path": "education", "type": "object[]", "required": false },
+    { "path": "provenance", "type": "object[]", "required": false },
     { "path": "overall_confidence", "type": "number", "required": false }
   ],
   "include_confidence": true,
