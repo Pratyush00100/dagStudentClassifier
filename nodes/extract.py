@@ -125,6 +125,8 @@ def extract_all(ctx):
                 cand = extract_github(source["data"])
             elif source["type"] == "recruiter_notes":
                 cand = extract_notes(source["data"])   # we'll skip for now, but you can add regex extraction
+            elif source["type"] == "linkedin_json":
+                cand = extract_linkedin(source["data"])
             else:
                 cand = empty_candidate(source_key)
             extracted.append(cand)
@@ -133,3 +135,35 @@ def extract_all(ctx):
             extracted.append(empty_candidate(source_key))
     ctx["extracted"] = extracted
     return ctx
+def extract_linkedin(data):
+    if isinstance(data, str):
+        try:
+            data = json.loads(data)
+        except:
+            return empty_candidate("linkedin")
+    if not isinstance(data, dict):
+        return empty_candidate("linkedin")
+    cand = empty_candidate("linkedin")
+    cand["full_name"] = data.get("full_name")
+    cand["headline"] = data.get("headline")
+    email = data.get("email")
+    if email:
+        cand["emails"] = [email]
+    # location
+    loc = data.get("location")
+    if loc:
+        parts = [p.strip() for p in loc.split(",")]
+        cand["location"] = {
+            "city": parts[0],
+            "region": parts[1] if len(parts) > 1 else None,
+            "country": "US"  # default; could be enhanced
+        }
+    # experience
+    cand["experience"] = data.get("experience", [])
+    # education
+    cand["education"] = data.get("education", [])
+    # skills
+    skills = data.get("skills", [])
+    cand["skills"] = [{"name": s, "confidence": None, "sources": ["linkedin"]} for s in skills]
+    return cand
+

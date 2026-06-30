@@ -1,0 +1,24 @@
+{
+  "full_name": "Jane Smith",
+  "headline": "Senior Developer at TechCorp",
+  "location": "San Francisco, CA",
+  "email": "jane.smith@linkedin.com",
+  "experience": [
+    {
+      "company": "TechCorp",
+      "title": "Senior Developer",
+      "start": "2020-01",
+      "end": null,
+      "summary": "Lead frontend team"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stanford University",
+      "degree": "B.S.",
+      "field": "Computer Science",
+      "end_year": 2019
+    }
+  ],
+  "skills": ["JavaScript", "React", "Node.js", "TypeScript"]
+}

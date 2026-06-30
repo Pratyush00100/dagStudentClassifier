@@ -16,5 +16,5 @@
   ],
   "include_confidence": true,
   "on_missing": "null",
-  "source_priority": ["ats", "github"]
+  "source_priority": ["ats","linkedin", "github"]
 }

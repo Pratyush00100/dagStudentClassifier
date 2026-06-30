@@ -7,5 +7,5 @@
   ],
   "include_confidence": true,
   "on_missing": "omit",
-  "source_priority": ["ats", "github"]
+  "source_priority": ["ats","linkedin", "github"]
 }

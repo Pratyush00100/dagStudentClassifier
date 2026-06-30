@@ -8,8 +8,7 @@ def normalize_phone(phone_str, default_country="US"):
             return phonenumbers.format_number(phone_num, phonenumbers.PhoneNumberFormat.E164)
     except:
         pass
-    return None  # drop invalid
-
+    return None
 def normalize_email(email):
     email = email.strip().lower()
     if re.match(r"^[^@]+@[^@]+\.[^@]+$", email):
@@ -88,3 +87,22 @@ def normalize_all(ctx):
             normalized.append(cand)  # keep original
     ctx["normalized"] = normalized
     return ctx
+def normalize_location(loc_dict):
+    if not loc_dict:
+        return None
+    def safe_strip(val):
+        return val.strip() if isinstance(val, str) and val.strip() else None
+
+    city = safe_strip(loc_dict.get("city"))
+    region = safe_strip(loc_dict.get("region"))
+    country = safe_strip(loc_dict.get("country"))
+
+    if not country:
+        # infer from region or city
+        if region and region.upper() in ["CA", "NY", "TX", "WA"]:
+            country = "US"
+        elif city and city.lower() in ["london", "manchester"]:
+            country = "GB"
+        else:
+            country = "US"  # default for demo
+    return {"city": city, "region": region, "country": country}

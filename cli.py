@@ -9,6 +9,7 @@ def main():
     parser.add_argument("--github-file", help="Path to a local GitHub API response JSON file")
     parser.add_argument("--config", default="configs/default.json", help="Config file path")
     parser.add_argument("--out", default="output/result.json", help="Output file")
+    parser.add_argument("--linkedin-file", help="Path to a local LinkedIn profile JSON file")
     args = parser.parse_args()
 
     # Load config
@@ -21,6 +22,8 @@ def main():
         source_args["ats"] = args.ats
     if args.github_file:
         source_args["github"] = args.github_file   # file path
+    if args.linkedin_file:
+        source_args["linkedin"] = args.linkedin_file
     elif args.github:
         # construct full API URL from username or full URL
         username_or_url = args.github.strip()

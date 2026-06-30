@@ -11,6 +11,8 @@ def classify_sources(ctx):
             ctx["raw_sources"][key] = {"type": "github_api", "data": data}
         elif key == "notes":
             ctx["raw_sources"][key] = {"type": "recruiter_notes", "data": data}
+        elif key == "linkedin":
+            ctx["raw_sources"][key] = {"type": "linkedin_json", "data": data}
         else:
             # default to unstructured text
             ctx["raw_sources"][key] = {"type": "text", "data": data}
